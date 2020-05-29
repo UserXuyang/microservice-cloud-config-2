@@ -1,0 +1,62 @@
+#注意：如果在记事本上编写，下面的缩进不要使用Tab来缩进，不然报错
+spring:
+  profiles:
+    active: dev # 激活开发环境配置
+---
+server:
+  port: 8001 #端口号
+spring:
+  profiles: dev # 开发环境
+  application:
+    name: microservice-config-product
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver             # mysql驱动包
+    url: jdbc:mysql://118.190.97.123:3306/springcloud_db01?serverTimezone=GMT%2B8  # 数据库名称
+    username: root
+    password: 1qaz!QAZ
+    dbcp2:
+      min-idle: 5                                # 数据库连接池的最小维持连接数
+      initial-size: 5                            # 初始化连接数
+      max-total: 5                               # 最大连接数
+      max-wait-millis: 150                       # 等待连接获取的最大超时时间  
+	
+    
+eureka:
+  client:
+    registerWithEureka: true 
+    fetchRegistry: true 
+    serviceUrl:
+      defaultZone: http://eureka6001.com:6001/eureka,http://eureka6002.com:6002/eureka
+  server:
+    enable-self-preservation: false # 禁用自我保护机制*****************
+---
+server:
+  port: 8001 #端口号
+spring:
+  profiles: prod # 开发环境
+  application:
+    name: microservice-config-product
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver             # mysql驱动包
+    url: jdbc:mysql://118.190.97.123:3306/springcloud_db01?serverTimezone=GMT%2B8  # 数据库名称
+    username: root
+    password: 1qaz!QAZ
+    dbcp2:
+      min-idle: 5                                # 数据库连接池的最小维持连接数
+      initial-size: 5                            # 初始化连接数
+      max-total: 5                               # 最大连接数
+      max-wait-millis: 150                       # 等待连接获取的最大超时时间  
+	
+    
+eureka:
+  client:
+    registerWithEureka: true 
+    fetchRegistry: true 
+    serviceUrl:
+      defaultZone: http://eureka6001.com:6001/eureka,http://eureka6002.com:6002/eureka
+  server:
+    enable-self-preservation: false # 禁用自我保护机制*****************
+    
+#保存时注意，选择 UTF-8 保存
