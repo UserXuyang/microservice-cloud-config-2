@@ -1,0 +1,13 @@
+#注意：如果在记事本上编写，下面的缩进不要使用Tab来缩进，不然报错
+server:
+  port: 80
+spring:
+  profiles:
+    active: dev # 激活开发环境配置    
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: true 
+    serviceUrl:
+      defaultZone: http://eureka6001.com:6001/eureka,http://eureka6002.com:6002/eureka
+
